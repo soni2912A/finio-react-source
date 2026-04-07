@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { font-family: 'Syne', sans-serif; scroll-behavior: smooth; }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #111119; }
+  ::-webkit-scrollbar-thumb { background: #33334a; border-radius: 99px; }
+}
+
+@layer components {
+  .card { @apply bg-bg-2 border border-border rounded-2xl transition-all duration-200; }
+  .card:hover { @apply border-border-2; }
+  .btn-primary { @apply bg-accent text-white font-bold font-syne rounded-xl px-4 py-2.5 text-sm hover:opacity-90 transition-all duration-200 active:scale-95 flex items-center gap-2; }
+  .btn-secondary { @apply bg-bg-3 text-ink-2 font-semibold font-syne rounded-xl px-4 py-2.5 text-sm border border-border hover:bg-bg-4 hover:text-ink transition-all duration-200; }
+  .input-base { @apply bg-bg-3 border border-border text-ink font-syne text-sm rounded-xl px-3 py-2.5 outline-none transition-colors duration-150 placeholder:text-ink-3 focus:border-accent w-full; }
+  .nav-item { @apply flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 text-ink-2 hover:bg-bg-3 hover:text-ink font-medium text-sm relative; }
+  .nav-item-active { @apply text-accent-2 bg-[rgba(108,92,231,0.13)]; }
+  .badge { @apply text-xs font-bold px-2.5 py-0.5 rounded-full font-mono; }
+  .stat-card { @apply card p-5 relative overflow-hidden cursor-default; }
+  .tx-row { @apply border-b border-border last:border-none transition-colors duration-100 hover:bg-bg-3/60; }
+  .page-enter { animation: fadeUp 0.35s ease forwards; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.modal-enter { animation: slideUp 0.25s ease forwards; }
+.fade-in { animation: fadeUp 0.3s ease forwards; }
+
+
+.light-mode { background: #f0f0f8; color: #0d0d18; }
+.light-mode .card { background: #ffffff; border-color: #d8d8e8; }
+.light-mode .input-base { background: #f5f5fb; border-color: #d0d0e0; color: #0d0d18; }
